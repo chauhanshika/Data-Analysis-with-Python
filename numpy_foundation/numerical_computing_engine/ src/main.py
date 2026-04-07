@@ -3,12 +3,17 @@ from processing import compute_mean, compute_std
 
 def main():
     data = load_sensor_data("../data/sensor_data.csv")
-
     mean = compute_mean(data)
     std = compute_std(data)
-
     print("Mean:", mean)
     print("Standard Deviation:", std)
-
 if __name__ == "__main__":
     main()
+    
+from analysis import detect_anomalies
+def main():
+    data = load_sensor_data("../data/sensor_data.csv")
+
+    anomalies = detect_anomalies(data)
+
+    print("Detected Anomalies:", anomalies)
