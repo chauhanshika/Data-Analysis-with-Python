@@ -5,13 +5,17 @@ from processing import (
     min_max_normalize,
     z_score_normalize
 )
+from analysis import detect_anomalies
 
 def main():
     data = load_sensor_data("../data/sensor_data.csv")
 
     print("Original Data:", data)
-    print("Min-Max Normalized:", min_max_normalize(data))
-    print("Z-Score Normalized:", z_score_normalize(data))
+    print("Mean:", compute_mean(data))
+    print("Std:", compute_std(data))
+    print("Min-Max:", min_max_normalize(data))
+    print("Z-Score:", z_score_normalize(data))
+    print("Anomalies:", detect_anomalies(data))
 
 if __name__ == "__main__":
     main()
