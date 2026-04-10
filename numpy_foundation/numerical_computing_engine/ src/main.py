@@ -1,18 +1,17 @@
-import numpy as np
+from ingestion import load_sensor_data
+from processing import (
+    compute_mean,
+    compute_std,
+    min_max_normalize,
+    z_score_normalize
+)
 
-def compute_mean(data: np.ndarray) -> float:
-    total = 0.0
-    for value in data:
-        total += value
-    return total / len(data)
+def main():
+    data = load_sensor_data("../data/sensor_data.csv")
 
+    print("Original Data:", data)
+    print("Min-Max Normalized:", min_max_normalize(data))
+    print("Z-Score Normalized:", z_score_normalize(data))
 
-def compute_std(data: np.ndarray) -> float:
-    mean = compute_mean(data)
-    variance_sum = 0.0
-
-    for value in data:
-        variance_sum += (value - mean) ** 2
-
-    variance = variance_sum / len(data)
-    return variance ** 0.5
+if __name__ == "__main__":
+    main()
