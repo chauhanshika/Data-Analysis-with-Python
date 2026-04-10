@@ -6,9 +6,11 @@ from processing import (
     z_score_normalize
 )
 from analysis import detect_anomalies
+from utils import validate_data
 
 def main():
     data = load_sensor_data("../data/sensor_data.csv")
+    validate_data(data)
 
     print("Original Data:", data)
     print("Mean:", compute_mean(data))
