@@ -15,6 +15,7 @@ Sensor-generated data (e.g., IoT devices, monitoring systems) is often:
 * Noisy and inconsistent
 * Containing extreme outliers
 * Difficult to directly use for analysis or modeling
+  
 
 Without proper preprocessing, such data leads to inaccurate insights and unreliable systems.
 
